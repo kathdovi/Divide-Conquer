@@ -1,18 +1,18 @@
 // TODO: Make a single task here. Will also render its subtasks
 // Uncomment the code & write the jsx
 
-import React, { Component } from "react";
-import Subtask from "./Subtask";
+// import React, { Component } from "react";
+// import Subtask from "./Subtask";
 
 
-class Task extends Component {
+// class Task extends Component {
 
-    render() {
+//     render() {
 
-        return (
-            // jsx goes here
-        );
-    }
-}
+//         return (
+//             // jsx goes here
+//         );
+//     }
+// }
 
-export default Task;
+// export default Task;
