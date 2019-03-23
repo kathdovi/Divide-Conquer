@@ -17,7 +17,6 @@
 import React from 'react';
 import { observer } from 'mobx-react';
 
-
 import Checkbox from 'material-ui/Checkbox';
 import TextField from 'material-ui/TextField';
 import FontIcon from 'material-ui/FontIcon';
@@ -32,7 +31,7 @@ const iconStyles = {
 const INDENT_SIZE = 25;
 
 
-@observer class Todo extends React.Component {
+@observer class SubTodo extends React.Component {
 
   // Give focus to the most recently created todo item.
   componentDidMount() {
@@ -68,18 +67,7 @@ const INDENT_SIZE = 25;
 
     // the (non displaying) root node is depth 0. first non-indented level
     // is at depth 1.
-    const marginLeft = `${(depth - 1) * INDENT_SIZE}pt`;
-
-    const AddSubTodo = observer(({ store }) => (
-      <ListItem
-        onTouchTap={(e) => {
-          e.preventDefault();
-          store.addSubTodo();
-        }}
-      >
-        Add Subtask
-      </ListItem>
-    ));
+    const marginLeft = `${(1) * INDENT_SIZE}pt`;
 
     // It's important for the interface to function correctly to handle
     // both keydown and keyup. In the case of tab, for example, if you just
@@ -152,60 +140,57 @@ const INDENT_SIZE = 25;
     // };
 
     return (
-      <div>
-        <ListItem
-          disabled
+      <ListItem
+        disabled
+        style={{
+          display: 'flex',
+          flexWrap: 'nowrap',
+          padding: '3px',
+          alignItems: 'center',
+          marginLeft,
+        }}
+      >
+        <Checkbox
+          name=""
+          label=""
+          checked={completed}
+          onClick={toggle}
           style={{
-            display: 'flex',
-            flexWrap: 'nowrap',
-            padding: '3px',
-            alignItems: 'center',
-            marginLeft,
+            display: 'inline-block',
+            width: '',
+            margin: '0',
+            marginLeft: 10,
+            verticalAlign: 'center',
           }}
+        />
+        <TextField
+          hintText=""
+          id={`${node.id}textfield`}
+          fullWidth={false}
+          value={text}
+          ref={(input) => { this.textFieldRef = input; }}
+          disabled={completed}
+          onChange={(e, newValue) => update(newValue)}
+          /* onKeyDown={handleKeyPress.bind(this)}
+          onKeyUp={handleKeyPress.bind(this)} */
+          style={{
+            margin: 0,
+            display: 'inline-block',
+            flexGrow: 2,
+          }}
+        />
+        <IconButton
+          onTouchTap={() => {
+            focusNode(id, -1);
+            deleteSelf();
+          }}
+          tooltip="Delete Todo"
         >
-          <Checkbox
-            name=""
-            label=""
-            checked={completed}
-            onClick={toggle}
-            style={{
-              display: 'inline-block',
-              width: '',
-              margin: '0',
-              marginLeft: 10,
-              verticalAlign: 'center',
-            }}
-          />
-          <TextField
-            hintText=""
-            id={`${node.id}textfield`}
-            fullWidth={false}
-            value={text}
-            ref={(input) => { this.textFieldRef = input; }}
-            disabled={completed}
-            onChange={(e, newValue) => update(newValue)}
-            /* onKeyDown={handleKeyPress.bind(this)}
-            onKeyUp={handleKeyPress.bind(this)} */
-            style={{
-              margin: 0,
-              display: 'inline-block',
-              flexGrow: 2,
-            }}
-          />
-          <IconButton
-            onTouchTap={() => {
-              focusNode(id, -1);
-              deleteSelf();
-            }}
-            tooltip="Delete Todo"
-          >
-            <FontIcon className="material-icons" style={iconStyles} >delete</FontIcon>
-          </IconButton>
-        </ListItem>
-        <AddSubTodo store={this.props.store} />
-      </div>
+          <FontIcon className="material-icons" style={iconStyles} >delete</FontIcon>
+        </IconButton>
+      </ListItem>
     );
   }
 }
 
-export default Todo;
+export default SubTodo;

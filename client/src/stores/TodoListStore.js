@@ -111,6 +111,19 @@ export class TodoListStore {
   }
 
   @action.bound
+  addSubTodo(text = '') {
+    const newNode = new TodoNode(this.todoRoot, text);
+    this.todoRoot.children.push(newNode);
+    const currentParent = newNode.parent;
+    const newParent = newNode.previous;
+
+    newParent.children.push(newNode);
+    currentParent.children.remove(newNode);
+    newNode.parent = newParent;
+    return newNode;
+  }
+
+  @action.bound
   addTodoAfter(node, text = '') {
     const newNode = new TodoNode(node.parent, text);
     node.parent.children.splice(node.index + 1,
