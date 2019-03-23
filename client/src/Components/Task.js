@@ -1,8 +1,13 @@
 // TODO: Make a single task here. Will also render its subtasks
 // Uncomment the code & write the jsx
+<<<<<<< HEAD
 /*
 import React, { Component } from "react";
 import Subtask from "./Subtask";
+=======
+
+// import React, { Component } from "react";
+// import Subtask from "./Subtask";
 
 let nextTaskId = 0;
 
@@ -18,14 +23,16 @@ class Task extends Component {
 	toggle() {
 		this.setState(!this.done);
 	}
+	
+// class Task extends Component {
 
-    render() {
+
+     render() {
+
 
         return (
             
         );
     }
 }
-
-export default Task;
-*/
+// export default Task;

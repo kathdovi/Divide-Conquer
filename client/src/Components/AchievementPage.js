@@ -8,7 +8,7 @@ class AchievementPage extends Component {
     render() {
 
         return (
-            // jsx goes here
+            <div> Achievement Page </div>
         );
     }
 }
