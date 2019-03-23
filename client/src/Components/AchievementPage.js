@@ -5,9 +5,14 @@ import React, { Component } from "react";
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import axios from 'axios'
 
 // get score from the api here
-let score = 290
+// Add the 
+//axios.get().then(response => console.log(response));
+
+// hardcoded score for debugging & testing
+let score = 600
 
 class AchievementPage extends Component {
 
@@ -41,6 +46,20 @@ class AchievementPage extends Component {
                     </Col>
                     <Col sm={3}>
                         {score >= 400 && <div> medal 8 </div>}
+                    </Col>
+                </Row>
+                <Row style={{ "paddingTop": "30px" }}>
+                    <Col sm={3}>
+                        {score >= 450 && <div> medal 5 </div>}
+                    </Col>
+                    <Col sm={3}>
+                        {score >= 500 && <div> medal 6 </div>}
+                    </Col>
+                    <Col sm={3}>
+                        {score >= 550 && <div> medal 7 </div>}
+                    </Col>
+                    <Col sm={3}>
+                        {score >= 600 && <div> medal 8 </div>}
                     </Col>
                 </Row>
             </Container>
