@@ -9,7 +9,7 @@ class TaskList extends Component {
     render() {
 
         return (
-            <div> Task List </div>
+            <div> <Task value="do something" /> </div>
         );
     }
 }
