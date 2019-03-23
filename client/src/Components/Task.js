@@ -48,7 +48,7 @@ class Task extends Component {
 
 
         return (
-		<Container style={{"paddingBottom" : "10px", "paddingTop" : "10px"}}>
+		<div style={{"paddingBottom" : "10px", "paddingTop" : "10px"}}>
 		<Alert key={this.state.id} variant={this.state.done ? 'success' : 'warning'}>
 			<Form>
 				<Form.Group as={Row} controlId={this.state.id}>
@@ -68,7 +68,7 @@ class Task extends Component {
           show={this.state.modalShow}
           onHide={modalClose}
         />
-		</ Container>
+		</ div>
         );
     }
 }

@@ -3,13 +3,26 @@
 
 import React, { Component } from "react";
 import Task from "./Task";
+import InputGroup from 'react-bootstrap/InputGroup';
+import Button from 'react-bootstrap/Button';
+import FormControl from 'react-bootstrap/FormControl';
+import Container from "react-bootstrap/Container";
+
 
 class TaskList extends Component {
 
     render() {
 
         return (
-            <div> <Task value="do something" /> </div>
+            <Container> 
+                <Task value="do something" /> 
+                <InputGroup className="mb-3">
+                    <InputGroup.Prepend>
+                        <Button variant="outline-secondary" style={{"fontSize": "20px", "width": "70px"}}> + </Button>
+                    </InputGroup.Prepend>
+                    <FormControl style={{ "height": "60px", "fontSize": "20px" }} aria-describedby="basic-addon1" />
+                </InputGroup>
+            </Container>
         );
     }
 }
