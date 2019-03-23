@@ -5,9 +5,10 @@ import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
-import './Task.css'
+// import './Task.css'
 import Alert from 'react-bootstrap/Alert'
 import Container from 'react-bootstrap/Container'
+import Modal from "./Modal";
 
 let nextTaskId = 0;
 
@@ -15,10 +16,14 @@ class Task extends Component {
 	
 	onChange(e) {
 		this.setState({done: !this.state.done});
+		if (!this.state.done) {
+			this.setState({ modalShow: true });
+		}
 	}
 	
 	constructor(props) {
 		super(props);
+		this.state = { modalShow: false };
 		this.state = {subTasks: {}};
 		this.state = {done: false};
 		this.state = {id: nextTaskId};
@@ -39,6 +44,8 @@ class Task extends Component {
 
      render() {
 
+		 let modalClose = () => this.setState({ modalShow: false });
+
 
         return (
 		<Container style={{"paddingBottom" : "10px", "paddingTop" : "10px"}}>
@@ -57,6 +64,10 @@ class Task extends Component {
 			</Form>
 		</Alert>
 		<div>{this.state.subTasks}</div>
+		 <Modal
+          show={this.state.modalShow}
+          onHide={modalClose}
+        />
 		</ Container>
         );
     }
