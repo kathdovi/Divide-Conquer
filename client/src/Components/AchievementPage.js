@@ -3,14 +3,14 @@
 
 import React, { Component } from "react";
 
-// class AchievementPage extends Component {
+class AchievementPage extends Component {
 
-//     render() {
+    render() {
 
-//         return (
-//             // jsx goes here
-//         );
-//     }
-// }
+        return (
+            // jsx goes here
+        );
+    }
+}
 
-// export default AchievementPage;
+export default AchievementPage;
