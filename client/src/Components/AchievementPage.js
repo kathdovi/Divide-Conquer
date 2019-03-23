@@ -14,8 +14,8 @@ class AchievementPage extends Component {
     render() {
 
         return (
-            <Container>
-                <Row>
+            <Container style={{"paddingTop": "30px"}}>
+                <Row style={{ "paddingTop": "30px" }}>
                     <Col sm={3}>
                         {score >= 50 && <div> medal 1 </div>}
                     </Col>
@@ -29,7 +29,7 @@ class AchievementPage extends Component {
                         {score >= 200 && <div> medal 4 </div>}
                     </Col>
                 </Row>
-                <Row>
+                <Row style={{ "paddingTop": "30px" }}>
                     <Col sm={3}>
                         {score >= 250 && <div> medal 5 </div>}
                     </Col>
