@@ -9,12 +9,12 @@ class NavBar extends React.Component {
     render() {
         return (
             <div>
-                <Navbar variant="light" style={{ backgroundColor: "#00897b" }}>
+                <Navbar variant="light" style={{ backgroundColor: "#FDBCF6"}}>
                     <Nav className="mr-auto">
-                        <Link style={{ color: "white", paddingRight: "20px", paddingTop: "8px", paddingBottom: "6px", fontSize: "20px"}} to="/">
+                        <Link className="link" to="/">
                             Tasks
                     </Link>
-                        <Link style={{ color: "white", paddingRight: "20px", paddingTop: "8px", paddingBottom: "6px", fontSize: "20px"}} to="/achievements">
+                        <Link className="link" to="/achievements">
                             Achievements
                     </Link>
                     </Nav>

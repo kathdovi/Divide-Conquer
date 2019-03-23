@@ -9,6 +9,8 @@ import Row from 'react-bootstrap/Row'
 import Alert from 'react-bootstrap/Alert'
 import Container from 'react-bootstrap/Container'
 import Modal from "./Modal";
+import InputGroup from 'react-bootstrap/InputGroup';
+
 
 let nextTaskId = 0;
 
@@ -50,10 +52,10 @@ class Task extends Component {
         return (
 		<div style={{"paddingBottom" : "10px", "paddingTop" : "10px"}}>
 		<Alert key={this.state.id} variant={this.state.done ? 'success' : 'warning'}>
-			<Form>
-				<Form.Group as={Row} controlId={this.state.id}>
+			<Form >
+				<Form.Group style={{"margin" : "auto"}} as={Row} controlId={this.state.id}>
 				<Col sm={8}>
-					<Form.Check type="checkbox" id={this.state.id}
+					<Form.Check style={{"position" : "fixed"}} type="checkbox" id={this.state.id}
 					label={this.state.name} onChange={this.onChange} />
 
 				</Col>

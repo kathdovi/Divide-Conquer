@@ -1,0 +1,12 @@
+.link {
+    color: #1A1A1A;
+    padding: 10px;
+    font-size: 20px;
+}
+
+.link:hover {
+    background-color: #1A1A1A;
+    color: #FDBCF6;
+    text-decoration: none;
+    height: 100%;
+}
