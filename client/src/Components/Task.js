@@ -1,10 +1,6 @@
-// TODO: Make a single task here. Will also render its subtasks
-// Uncomment the code & write the jsx
-<<<<<<< HEAD
-/*
+
 import React, { Component } from "react";
 import Subtask from "./Subtask";
-=======
 
 // import React, { Component } from "react";
 // import Subtask from "./Subtask";
@@ -31,7 +27,7 @@ class Task extends Component {
 
 
         return (
-            
+            <div />
         );
     }
 }
