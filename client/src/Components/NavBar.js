@@ -4,6 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import "./navbar.css";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
+import PointBar from "./PointBar.js" 
 
 class NavBar extends React.Component {
     render() {
@@ -17,6 +18,7 @@ class NavBar extends React.Component {
                         <Link className="link" to="/achievements">
                             Achievements
                     </Link>
+					<PointBar />
                     </Nav>
                 </Navbar>
             </div>
