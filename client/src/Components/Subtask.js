@@ -10,7 +10,7 @@ import Container from 'react-bootstrap/Container'
 
 let nextSubTaskId = 0;
 
-class Task extends Component {
+class subtask extends Component {
 	
 	onChange(e) {
 		this.setState({done: !this.state.done});
@@ -21,7 +21,7 @@ class Task extends Component {
 		this.state = {done: false};
 		this.state = {id: nextSubTaskId};
 		this.state = {name: props.value};
-		nextTaskId += 1;
+		nextSubTaskId += 1;
 		this.onChange = this.onChange.bind(this);
 		
 	}
