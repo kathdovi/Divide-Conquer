@@ -11,11 +11,22 @@ import Container from 'react-bootstrap/Container'
 import Modal from "./Modal";
 import InputGroup from 'react-bootstrap/InputGroup'
 import FormControl from 'react-bootstrap/FormControl'
+import axios from 'axios';
 
 let nextSubTaskId = 0;
 
 class Task extends Component {
 	
+	componentDidMount() {
+        axios.get('http://localhost:8080/all-tasks.jsp')
+            .then(response => {
+            	console.log(response.data)
+                const rawData = response.data
+                const subTasks = rawData.filter(x => x.sub_text !== "null").filter(x => this.state.name == x.task_text).map(x => ({ value: x.sub_text }))
+                this.setState({ subTasks });
+            });
+    }
+
 	onChange(e) {
 		this.setState({done: !this.state.done});
 		if (!this.state.done) {
@@ -27,7 +38,8 @@ class Task extends Component {
 		super(props);
 		this.state = { 
 			modalShow: false, 
-			subTasks : [], 
+			subTasks : [],
+
 			done:false, 
 			id:props.id, 
 			name:props.value,

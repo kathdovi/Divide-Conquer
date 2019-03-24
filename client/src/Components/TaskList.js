@@ -10,16 +10,35 @@ import Container from "react-bootstrap/Container";
 import "./TaskList.css";
 
 let nextTaskId = 0;
+import axios from 'axios';
 
 class TaskList extends Component {
 	
 	constructor(props) {
 		super(props);
-		this.state = {tasks : []};
+		this.state = {
+			tasks : [],
+			rawData: {}
+		};
 		this.addTask = this.addTask.bind(this);
 		this.handleNextTaskChange = this.handleNextTaskChange.bind(this)
 		this.remove = this.remove.bind(this);
+
 	}
+
+	componentDidMount() {
+        axios.get('http://localhost:8080/all-tasks.jsp')
+            .then(response => {
+            	console.log(response.data)
+                const rawData = response.data
+                const tasks = rawData.map(x => ({ value: x.task_text })).filter(this.filterDups)
+                this.setState({ tasks });
+            });
+    }
+
+    filterDups(curr, index, arr) {
+    	return arr.map(x => x.value).indexOf(curr.value) >= index;
+    }
 
 	remove(e) {
 		const newtasks = this.state.tasks.filter(task => task.id != e)
