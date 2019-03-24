@@ -69,7 +69,7 @@ class Task extends Component {
 		<div>
 		<Alert style={{"width":"100%", "float":"left"}} key={this.state.id} variant={this.state.done ? 'success' : 'warning'}>
 			<Form >
-				<Form.Group style={{"margin" : "auto"}} as={Row} controlId={this.state.id}>
+				<Form.Group as={Row} controlId={this.state.id}>
 				<Col sm={8}>
 					<Form.Check type="checkbox" id={this.state.id}
 					label={this.state.name} onChange={this.onChange} />
