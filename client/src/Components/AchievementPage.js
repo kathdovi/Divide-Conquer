@@ -9,6 +9,10 @@ import Medal1 from "./medal_1.png";
 import Medal2 from "./medal_2.png";
 import Medal3 from "./medal_3.png";
 import Medal4 from "./medal_4.png";
+import Medal5 from "./medal_5.png";
+import Medal6 from "./medal_6.png";
+import Medal7 from "./medal_7.png";
+import Medal8 from "./medal_8.png";
 import axios from 'axios'
 
 // hardcoded score for debugging & testing
@@ -57,30 +61,16 @@ class AchievementPage extends Component {
                 </Row>
                 <Row style={{ "paddingTop": "30px" }}>
                     <Col sm={3}>
-                        {this.state.score >= 250 && <div> medal 5 </div>}
+                        {this.state.score >= 250 && <div> <img style={{ "height": "200px" }} src={Medal5} /> </div>}
                     </Col>
                     <Col sm={3}>
-                        {this.state.score >= 300 && <div> medal 6 </div>}
+                        {this.state.score >= 300 && <div> <img style={{ "height": "200px" }} src={Medal6} /> </div>}
                     </Col>
                     <Col sm={3}>
-                        {this.state.score >= 350 && <div> medal 7 </div>}
+                        {this.state.score >= 350 && <div> <img style={{ "height": "200px" }} src={Medal7} /> </div>}
                     </Col>
                     <Col sm={3}>
-                        {this.state.score >= 400 && <div> medal 8 </div>}
-                    </Col>
-                </Row>
-                <Row style={{ "paddingTop": "30px" }}>
-                    <Col sm={3}>
-                        {this.state.score >= 450 && <div> medal 5 </div>}
-                    </Col>
-                    <Col sm={3}>
-                        {this.state.score >= 500 && <div> medal 6 </div>}
-                    </Col>
-                    <Col sm={3}>
-                        {this.state.score >= 550 && <div> medal 7 </div>}
-                    </Col>
-                    <Col sm={3}>
-                        {this.state.score >= 600 && <div> medal 8 </div>}
+                        {this.state.score >= 400 && <div> <img style={{ "height": "200px" }} src={Medal8} /> </div>}
                     </Col>
                 </Row>
             </Container>
