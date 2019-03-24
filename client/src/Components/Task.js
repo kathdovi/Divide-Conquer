@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
-// import './Task.css'
+import './Task.css'
 import Alert from 'react-bootstrap/Alert'
 import Container from 'react-bootstrap/Container'
 import Modal from "./Modal";
@@ -50,7 +50,7 @@ class Task extends Component {
 
 
         return (
-		<div style={{"paddingBottom" : "10px", "paddingTop" : "10px"}}>
+		<div style={{"paddingTop" : "30px",}}>
 		<Alert key={this.state.id} variant={this.state.done ? 'success' : 'warning'}>
 			<Form >
 				<Form.Group style={{"margin" : "auto"}} as={Row} controlId={this.state.id}>
@@ -60,7 +60,7 @@ class Task extends Component {
 
 				</Col>
 				<Col sm={4}>
-					<Button variant="outline-danger" onClick={this.remove}>Delete</Button>
+					<Button variant="outline-danger" style={{"float": "right"}} onClick={this.remove}>Delete</Button>
 				</Col>
 				</Form.Group>
 			</Form>

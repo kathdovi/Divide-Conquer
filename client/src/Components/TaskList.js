@@ -16,7 +16,7 @@ class TaskList extends Component {
         return (
             <Container> 
                 <Task value="do something" /> 
-                <InputGroup className="mb-3">
+                <InputGroup style={{"paddingTop" : "10px"}} className="mb-3">
                     <InputGroup.Prepend>
                         <Button variant="outline-secondary" style={{"fontSize": "20px", "width": "70px"}}> + </Button>
                     </InputGroup.Prepend>
