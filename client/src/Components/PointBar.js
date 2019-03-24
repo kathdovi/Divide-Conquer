@@ -17,7 +17,7 @@ class PointBar extends React.Component {
 	render() { 
 		return (
 			<Container>
-				<Alert variant={'dark'} style={{"width":"25vw", "float":"right"}}>
+				<Alert variant={'dark'} style={{ "width": "25vw", "float": "right"}}>
 					{this.state.points}
 				</Alert>
 			</Container>

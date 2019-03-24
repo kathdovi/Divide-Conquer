@@ -1,6 +1,7 @@
 .link {
     color: #1A1A1A;
     padding: 10px;
+    padding-top: 15px;
     font-size: 20px;
 }
 
@@ -12,5 +13,7 @@
 }
 
 #nav-bar {
+    padding-bottom: 0px;
     margin-bottom: 30px !important;
+    border-bottom: 1px solid;
 }

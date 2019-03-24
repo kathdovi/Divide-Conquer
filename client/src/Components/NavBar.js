@@ -11,7 +11,7 @@ class NavBar extends React.Component {
         return (
             <div>
                 <Navbar id="nav-bar" variant="light" style={{ backgroundColor: "#ffd1dc"}}>
-                    <Nav className="mr-auto">
+                    <Nav className="mr-auto" style={{"width" : "100%"}}>
                         <Link className="link" to="/">
                             Tasks
                     </Link>
