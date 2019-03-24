@@ -12,7 +12,7 @@ import Modal from "./Modal";
 import InputGroup from 'react-bootstrap/InputGroup'
 import FormControl from 'react-bootstrap/FormControl'
 
-let nextTaskId = 0;
+let nextSubTaskId = 0;
 
 class Task extends Component {
 	
@@ -29,12 +29,11 @@ class Task extends Component {
 			modalShow: false, 
 			subTasks : [], 
 			done:false, 
-			id:nextTaskId, 
+			id:props.id, 
 			name:props.value,
 			nextSubtaskValue: ''
 		};
 		
-		nextTaskId += 1;
 		this.onChange = this.onChange.bind(this);
 		this.addSubTask = this.addSubTask.bind(this);
 		this.handleNextSubtaskChange = this.handleNextSubtaskChange.bind(this)
@@ -43,7 +42,8 @@ class Task extends Component {
 
 	
 	addSubTask(e) {
-		const newtask = {value : this.state.nextSubtaskValue};
+		const newtask = {value : this.state.nextSubtaskValue, id : nextSubTaskId};
+		nextSubTaskId += 1;
 		this.setState({subTasks : this.state.subTasks.concat([newtask])});
 	}
 	
@@ -55,7 +55,7 @@ class Task extends Component {
 	}
 	
 	remove(sub) {
-		const newtasks = this.state.subTasks.filter(task => task.value != sub)
+		const newtasks = this.state.subTasks.filter(task => task.id != sub)
 		this.setState({subTasks : newtasks});
 	}
 
@@ -81,7 +81,7 @@ class Task extends Component {
 				</Form.Group>
 			</Form>
 		</Alert>
-	 <div>{this.state.subTasks.map(subtask => <Subtask value={subtask.value} key={subtask.value} fun={()=>this.remove(subtask.value)} />)}</div>
+	 <div>{this.state.subTasks.map(subtask => <Subtask value={subtask.value} key={subtask.id} fun={()=>this.remove(subtask.id)} />)}</div>
 		
 		<div style={{"width":"80%", "float":"right"}}>
 		<InputGroup className="mb-3">

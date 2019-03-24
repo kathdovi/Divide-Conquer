@@ -8,7 +8,6 @@ import './Task.css'
 import Alert from 'react-bootstrap/Alert'
 import Container from 'react-bootstrap/Container'
 
-let nextSubTaskId = 0;
 
 class Subtask extends Component {
 	
@@ -19,9 +18,8 @@ class Subtask extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {done: false};
-		this.state = {id: nextSubTaskId};
-		this.state = {name: props.value};
-		nextSubTaskId += 1;
+		this.state = {id: props.id,
+					name: props.value};
 		this.onChange = this.onChange.bind(this);
 		
 	}
