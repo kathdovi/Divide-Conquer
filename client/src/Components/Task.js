@@ -28,15 +28,27 @@ class Task extends Component {
     }
 
 	onChange(e) {
+		axios.get('http://localhost:8080/user-score-call.jsp?name="you"')
+            .then(response => {
+                const score = parseInt(response.data.score);
+                this.setState({score});
+            });
+			
 		this.setState({done: !this.state.done});
 		if (!this.state.done) {
+			this.setState({ score: this.state.score + 5});
 			this.setState({ modalShow: true });
+		} else {
+			this.setState({ score: this.state.score - 5});
 		}
+		
+		//post new score here as well
 	}
 	
 	constructor(props) {
 		super(props);
 		this.state = { 
+			score: 0,
 			modalShow: false, 
 			subTasks : [],
 
