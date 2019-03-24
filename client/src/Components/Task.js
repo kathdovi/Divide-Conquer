@@ -83,7 +83,7 @@ class Task extends Component {
 			<Form >
 				<Form.Group as={Row} controlId={this.state.id}>
 				<Col sm={8}>
-					<Form.Check type="checkbox" id={this.state.id}
+					<Form.Check type="checkbox" id={this.state.id} isStatic={false}
 					label={this.state.name} onChange={this.onChange} />
 
 				</Col>
