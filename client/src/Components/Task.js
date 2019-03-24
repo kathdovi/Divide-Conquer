@@ -66,7 +66,7 @@ class Task extends Component {
 
 
         return (
-		<div style={{"paddingBottom" : "10px", "paddingTop" : "10px"}}>
+		<div>
 		<Alert style={{"width":"100%", "float":"left"}} key={this.state.id} variant={this.state.done ? 'success' : 'warning'}>
 			<Form >
 				<Form.Group style={{"margin" : "auto"}} as={Row} controlId={this.state.id}>
