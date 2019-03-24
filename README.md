@@ -6,19 +6,19 @@ For people with anxiety, ADHD, depression, or other mental health struggles, fin
 ## What it does
 Tasks and subtasks. Medals and positive statements.
 
-The website allows users to input tasks and subtasks. The tasks do not need to have subtasks, but the user can create as many as they need in order to fully utilize the site. When a user completes a task, *********insert information about point values with tasks/subtasks*********. 
+The website allows users to input tasks and subtasks. The tasks do not need to have subtasks, but the user can create as many as they need in order to fully utilize the site. When a user completes a task, they will receive 5 points for main tasks and 3 points for subtasks. The main tasks with more subtasks will be worth more total points because of the accumulation of the points from the subtasks. Every 50 points, the user receives a medal. Every time the user completes a main task, they receive a message of positive reinforcement.
 
 ## How we built it
-React.js frontend. Java backend. SQL database.
+React.js frontend. Java backend. SQL database. CSS. Apache TomCat to use Java to query database and return data through HTTP request for frontend. Frontend is React.js with CSS. Bootstrap.
 
 ## Challenges we ran into
-React sucks
+Database problems, lots of debugging. Getting output from frontend, backend, or database. Working with states in React. React learning curve. Working with CSS libraries.
 
 ## Accomplishments that we're proud of
-Things
+Figuring out React, to a degree. Teamwork. Finished a product that could have an impact on the intended audience. The beautiful color scheme of the site. Learning to use Terminal more. Using Apache TomCat. Learning about HTTP requests. Connecting a database to a frontend and backend. Successfully connecting a frontend to backend. Learning JavaScript
 
 ## What we learned
-Lots
+CSS. JavaScript. React.js. HTML. Connecting backend and frontend. GitHub. Using Terminal/Command Prompt. Apache TomCat. SQL. Databases.
 
-## What's next for Divide and Conquer
-Sleeping
+## What's next for Divide + Conquer
+Time management, connecting to Google Calendars. Account creation/management. More polished positive reinforcement. Better aesthetic design.
