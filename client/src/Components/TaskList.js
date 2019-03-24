@@ -8,9 +8,9 @@ import Button from 'react-bootstrap/Button';
 import FormControl from 'react-bootstrap/FormControl';
 import Container from "react-bootstrap/Container";
 import "./TaskList.css";
+import axios from 'axios';
 
 let nextTaskId = 0;
-import axios from 'axios';
 
 class TaskList extends Component {
 	
