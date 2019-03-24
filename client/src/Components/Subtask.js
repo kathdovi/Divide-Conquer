@@ -7,11 +7,26 @@ import Row from 'react-bootstrap/Row'
 import './Task.css'
 import Alert from 'react-bootstrap/Alert'
 import Container from 'react-bootstrap/Container'
-
+import axios from 'axios';
 
 class Subtask extends Component {
 	
 	onChange(e) {
+		axios.get('http://localhost:8080/user-score-call.jsp?name="you"')
+            .then(response => {
+                const score = parseInt(response.data.score);
+                this.setState({score});
+            });
+		if (!this.state.done) {
+			this.setState({ score: this.state.score + 3});
+			this.setState({ modalShow: true });
+		} else {
+			this.setState({ score: this.state.score - 3});
+			
+		}
+		
+		//post new score here as well
+		
 		this.setState({done: !this.state.done});
 	}
 	
@@ -19,7 +34,8 @@ class Subtask extends Component {
 		super(props);
 		this.state = {done: false};
 		this.state = {id: props.id,
-					name: props.value};
+					name: props.value,
+					score: 0};
 		this.onChange = this.onChange.bind(this);
 		
 	}
