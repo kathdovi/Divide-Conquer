@@ -8,20 +8,40 @@ import Button from 'react-bootstrap/Button';
 import FormControl from 'react-bootstrap/FormControl';
 import Container from "react-bootstrap/Container";
 import "./TaskList.css";
+import axios from 'axios';
 
+let nextTaskId = 0;
 
 class TaskList extends Component {
 	
 	constructor(props) {
 		super(props);
-		this.state = {tasks : []};
+		this.state = {
+			tasks : [],
+			rawData: {}
+		};
 		this.addTask = this.addTask.bind(this);
 		this.handleNextTaskChange = this.handleNextTaskChange.bind(this)
 		this.remove = this.remove.bind(this);
+
 	}
 
+	componentDidMount() {
+        axios.get('http://localhost:8080/all-tasks.jsp')
+            .then(response => {
+            	console.log(response.data)
+                const rawData = response.data
+                const tasks = rawData.map(x => ({ value: x.task_text })).filter(this.filterDups)
+                this.setState({ tasks });
+            });
+    }
+
+    filterDups(curr, index, arr) {
+    	return arr.map(x => x.value).indexOf(curr.value) >= index;
+    }
+
 	remove(e) {
-		const newtasks = this.state.tasks.filter(task => task.value != e)
+		const newtasks = this.state.tasks.filter(task => task.id != e)
 		this.setState({tasks : newtasks});
 	}
 	
@@ -29,7 +49,7 @@ class TaskList extends Component {
 
         return (
             <Container> 
-			<div>{this.state.tasks.map(task => <Task value={task.value} key={task.value} fun={()=>this.remove(task.value)} />)}</div>
+			<div>{this.state.tasks.map(task => <Task value={task.value} key={task.id} fun={()=>this.remove(task.id)} />)}</div>
                 <InputGroup className="mb-3">
                     <InputGroup.Prepend>
                         <Button onClick={this.addTask} variant="outline-secondary" style={{"fontSize": "20px", "width": "70px"}}> + </Button>
@@ -41,7 +61,8 @@ class TaskList extends Component {
     }
 	
 	addTask(e) {
-		const newtask = {value : this.state.nextTaskValue};
+		const newtask = {value : this.state.nextTaskValue, id : nextTaskId};
+		nextTaskId += 1;
 		this.setState({tasks : this.state.tasks.concat([newtask])});
 	}
 	
