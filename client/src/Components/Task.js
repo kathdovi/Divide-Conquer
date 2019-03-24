@@ -1,6 +1,6 @@
 
 import React, { Component } from "react";
-//import Subtask from "./Subtask";
+import Subtask from "./Subtask";
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import Col from 'react-bootstrap/Col'
@@ -9,8 +9,8 @@ import Row from 'react-bootstrap/Row'
 import Alert from 'react-bootstrap/Alert'
 import Container from 'react-bootstrap/Container'
 import Modal from "./Modal";
-import InputGroup from 'react-bootstrap/InputGroup';
-
+import InputGroup from 'react-bootstrap/InputGroup'
+import FormControl from 'react-bootstrap/FormControl'
 
 let nextTaskId = 0;
 
@@ -25,22 +25,38 @@ class Task extends Component {
 	
 	constructor(props) {
 		super(props);
-		this.state = { modalShow: false };
-		this.state = {subTasks: {}};
-		this.state = {done: false};
-		this.state = {id: nextTaskId};
-		this.state = {name: props.value};
+		this.state = { 
+			modalShow: false, 
+			subTasks : [], 
+			done:false, 
+			id:nextTaskId, 
+			name:props.value,
+			nextSubtaskValue: ''
+		};
+		
 		nextTaskId += 1;
 		this.onChange = this.onChange.bind(this);
+		this.addSubTask = this.addSubTask.bind(this);
+		this.handleNextSubtaskChange = this.handleNextSubtaskChange.bind(this)
 		
-	}
-	
-	remove(e) {
 	}
 
 	
-	addSubTask(props) {
-		
+	addSubTask(e) {
+		const newtask = {value : this.state.nextSubtaskValue};
+		this.setState({subTasks : this.state.subTasks.concat([newtask])});
+	}
+	
+	handleNextSubtaskChange(evt) {
+		const nextSubtaskValue = evt.target.value
+		this.setState({
+			nextSubtaskValue
+		})
+	}
+	
+	remove(sub) {
+		const newtasks = this.state.subTasks.filter(task => task.value != sub)
+		this.setState({subTasks : newtasks});
 	}
 
 
@@ -60,12 +76,20 @@ class Task extends Component {
 
 				</Col>
 				<Col sm={4}>
-					<Button variant="outline-danger" onClick={this.remove}>Delete</Button>
+					<Button variant="outline-danger" onClick={this.props.fun}>Delete</Button>
 				</Col>
 				</Form.Group>
 			</Form>
 		</Alert>
-		<div>{this.state.subTasks}</div>
+	 <div>{this.state.subTasks.map(subtask => <Subtask value={subtask.value} key={subtask.value} fun={()=>this.remove(subtask.value)} />)}</div>
+		
+		<InputGroup className="mb-3">
+                    <InputGroup.Prepend>
+                        <Button onClick={this.addSubTask} variant="outline-secondary" style={{"fontSize": "20px", "width": "70px"}}> + </Button>
+                    </InputGroup.Prepend>
+                    <FormControl style={{ "height": "60px", "fontSize": "20px" }} aria-describedby="basic-addon1" value={this.state.nextSubtaskValue} onChange={this.handleNextSubtaskChange} />
+                </InputGroup>
+		
 		 <Modal
           show={this.state.modalShow}
           onHide={modalClose}

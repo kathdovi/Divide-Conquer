@@ -10,7 +10,7 @@ import Container from 'react-bootstrap/Container'
 
 let nextSubTaskId = 0;
 
-class subtask extends Component {
+class Subtask extends Component {
 	
 	onChange(e) {
 		this.setState({done: !this.state.done});
@@ -40,7 +40,7 @@ class subtask extends Component {
 
 				</Col>
 				<Col sm={4}>
-					<Button variant="outline-danger">Delete</Button>
+					<Button onClick={this.props.fun} variant="outline-danger">Delete</Button>
 				</Col>
 				</Form.Group>
 			</Form>
