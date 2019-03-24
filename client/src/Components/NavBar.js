@@ -9,7 +9,7 @@ class NavBar extends React.Component {
     render() {
         return (
             <div>
-                <Navbar variant="light" style={{ backgroundColor: "#ffd1dc"}}>
+                <Navbar id="nav-bar" variant="light" style={{ backgroundColor: "#ffd1dc"}}>
                     <Nav className="mr-auto">
                         <Link className="link" to="/">
                             Tasks

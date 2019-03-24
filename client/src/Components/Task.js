@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
-// import './Task.css'
+import './Task.css'
 import Alert from 'react-bootstrap/Alert'
 import Container from 'react-bootstrap/Container'
 import Modal from "./Modal";
@@ -67,11 +67,11 @@ class Task extends Component {
 
         return (
 		<div style={{"paddingBottom" : "10px", "paddingTop" : "10px"}}>
-		<Alert key={this.state.id} variant={this.state.done ? 'success' : 'warning'}>
+		<Alert style={{"width":"100%", "float":"left"}} key={this.state.id} variant={this.state.done ? 'success' : 'warning'}>
 			<Form >
 				<Form.Group style={{"margin" : "auto"}} as={Row} controlId={this.state.id}>
 				<Col sm={8}>
-					<Form.Check style={{"position" : "fixed"}} type="checkbox" id={this.state.id}
+					<Form.Check type="checkbox" id={this.state.id}
 					label={this.state.name} onChange={this.onChange} />
 
 				</Col>
@@ -83,13 +83,15 @@ class Task extends Component {
 		</Alert>
 	 <div>{this.state.subTasks.map(subtask => <Subtask value={subtask.value} key={subtask.value} fun={()=>this.remove(subtask.value)} />)}</div>
 		
+		<div style={{"width":"80%", "float":"right"}}>
 		<InputGroup className="mb-3">
-                    <InputGroup.Prepend>
-                        <Button onClick={this.addSubTask} variant="outline-secondary" style={{"fontSize": "20px", "width": "70px"}}> + </Button>
-                    </InputGroup.Prepend>
-                    <FormControl style={{ "height": "60px", "fontSize": "20px" }} aria-describedby="basic-addon1" value={this.state.nextSubtaskValue} onChange={this.handleNextSubtaskChange} />
-                </InputGroup>
-		
+            <InputGroup.Prepend>
+                <Button onClick={this.addSubTask} variant="outline-secondary" style={{"fontSize": "20px", "width": "70px"}}> + </Button>
+            </InputGroup.Prepend>
+            <FormControl placeholder="Add A Subtask" style={{ "height": "60px", "fontSize": "20px" }} aria-describedby="basic-addon1" value={this.state.nextSubtaskValue} onChange={this.handleNextSubtaskChange} />
+        </InputGroup>
+		</div>
+
 		 <Modal
           show={this.state.modalShow}
           onHide={modalClose}

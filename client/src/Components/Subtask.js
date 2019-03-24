@@ -30,8 +30,8 @@ class Subtask extends Component {
 
 
         return (
-		<Container style={{"paddingLeft" : "10px","paddingBottom" : "10px", "paddingTop" : "10px"}}>
-		<Alert key={this.state.id} variant={this.state.done ? 'success' : 'warning'}>
+		<div>
+		<Alert style={{"width": "80%", "float": "right"}} key={this.state.id} variant={this.state.done ? 'success' : 'warning'}>
 			<Form>
 				<Form.Group as={Row} controlId={this.state.id}>
 				<Col sm={8}>
@@ -45,7 +45,8 @@ class Subtask extends Component {
 				</Form.Group>
 			</Form>
 		</Alert>
-		</ Container>
+		
+		</ div>
         );
     }
 }
